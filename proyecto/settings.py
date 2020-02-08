@@ -37,7 +37,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'Apps.configuraciones',
+    'proyecto.Apps.configuraciones',
 ]
 
 MIDDLEWARE = [
@@ -55,7 +55,7 @@ ROOT_URLCONF = 'proyecto.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'template')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -79,7 +79,7 @@ DATABASES = {
         'ENGINE':'mysql_cymysql',
         'NAME':'br_proyecto',
         'USER':'root',
-        'PASSWORD':'pass123',
+        'PASSWORD':'root',
         'HOST': 'localhost',
         'PORT': 3306,
     }
@@ -123,3 +123,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
+INTERNAL_IPS = {'127.0.0.1',}
+STATICFILES_DIRS = (os.path.join(BASE_DIR,'static'),)
+
